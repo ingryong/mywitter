@@ -6,7 +6,9 @@ const Auth = () => {
   const [password, setPassword] = useState('');
   const [newAccount, setNewAccount] = useState(true);
   const [error, setError] = useState('');
+
   const onChange = (event) => {
+    // input에 들어오는 value값을 email과 password 변수에 담아두어 onSubmit에 사용
     const {
       target: { name, value },
     } = event;
@@ -27,7 +29,7 @@ const Auth = () => {
           password
         );
       } else {
-        // log in
+        // 로그인
         data = await authService.signInWithEmailAndPassword(email, password);
       }
       console.log(data);
@@ -35,6 +37,7 @@ const Auth = () => {
       setError(error.message);
     }
   };
+  // setNewAccount로 newAccount의 값을 true와 false로 토글시켜 form의 submit과 해당 이벤트의 값을 변화시킴
   const toggleAccount = () => setNewAccount((prev) => !prev);
 
   // 소셜로그인
@@ -51,7 +54,7 @@ const Auth = () => {
       provider = new firebaseInstance.auth.GoogleAuthProvider();
     } else if (name === 'github') {
       // 깃헙을 클릭했을 경우, provider 안에 firebase의 깃헙 소셜로그인 api를 담는다.
-      provider = new firebaseInstance.auth.GoogleAuthProvider();
+      provider = new firebaseInstance.auth.GithubAuthProvider();
     }
     // await을 통해 async의 순서(provider에 값이 담길 때까지)를 기다린 후 signInWithPopup(팝업형태의 signIn) 진행
     const data = await authService.signInWithPopup(provider);
