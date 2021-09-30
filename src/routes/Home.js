@@ -1,3 +1,4 @@
+import Mweet from 'components/Mweet';
 import { dbService } from 'fbase';
 import React, { useEffect } from 'react';
 import { useState } from 'react/cjs/react.development';
@@ -8,6 +9,7 @@ const Home = ({ userObj }) => {
 
   useEffect(() => {
     dbService.collection('mweets').onSnapshot((snapshot) => {
+      // onSnapshot을 통해 mweets의 콜렉션에서 변화가 있을때마다 실시간으로 해당 데이터를 가져옴
       const mweetArray = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
@@ -50,9 +52,11 @@ const Home = ({ userObj }) => {
           (
             mweet // db에서 mweets 값 불러오기
           ) => (
-            <div key={mweet.id}>
-              <h4>{mweet.text}</h4>
-            </div>
+            <Mweet
+              key={mweet.id}
+              mweetObj={mweet}
+              isOwner={mweet.creatorId === userObj.uid}
+            />
           )
         )}
       </div>
