@@ -57,6 +57,7 @@ const Auth = () => {
       provider = new firebaseInstance.auth.GithubAuthProvider();
     }
     // await을 통해 async의 순서(provider에 값이 담길 때까지)를 기다린 후 signInWithPopup(팝업형태의 signIn) 진행
+    // data값을 콘솔 로그에서 확인하기 위해 data 값에 담기게 함. 원치 않는다면 `const data =`와 `console.log(data);` 삭제
     const data = await authService.signInWithPopup(provider);
     console.log(data);
   };

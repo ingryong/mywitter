@@ -1,6 +1,7 @@
 // firebase 8.10.0 사용  8.0.0부터 firebase/app import 에서 * as 사용 금지
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -15,5 +16,5 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 export const firebaseInstance = firebase;
-
 export const authService = firebase.auth();
+export const dbService = firebase.firestore();
