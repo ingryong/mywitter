@@ -1,15 +1,16 @@
-import { dbService } from 'fbase';
+import { dbService, storageService } from 'fbase';
 import React, { useState } from 'react';
 
 const Mweet = ({ mweetObj, isOwner }) => {
   const [editing, setEditing] = useState(false); // edit 모드인지 아닌지 토글하기위함
   const [newMweet, setNewMweet] = useState(mweetObj.text); // 실제 edit이 이루어짐
 
-  const onDeleteClick = () => {
+  const onDeleteClick = async () => {
     // 클릭 시 정말 삭제하겠냐는 선택지를 보여준 후 확인을 누르면 삭제
     const ok = window.confirm('정말 해당 mweet을 삭제하시겠습니까?');
     if (ok) {
-      dbService.doc(`mweets/${mweetObj.id}`).delete();
+      await dbService.doc(`mweets/${mweetObj.id}`).delete();
+      await storageService.refFromURL(mweetObj.attachmentUrl).delete();
     }
   };
 
@@ -51,6 +52,9 @@ const Mweet = ({ mweetObj, isOwner }) => {
       ) : (
         <>
           <h4>{mweetObj.text}</h4>
+          {mweetObj.attachmentUrl && (
+            <img src={mweetObj.attachmentUrl} width="100px" />
+          )}
           {isOwner && (
             <>
               <button onClick={onDeleteClick}>Delete Mweet</button>
