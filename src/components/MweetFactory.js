@@ -1,6 +1,7 @@
 import { dbService, storageService } from 'fbase';
 import React from 'react';
 import { useState } from 'react/cjs/react.development';
+
 import { v4 as uuidv4 } from 'uuid';
 
 const MweetFactory = ({ userObj }) => {
@@ -25,6 +26,8 @@ const MweetFactory = ({ userObj }) => {
       text: mweet, // 아래 input의 value={mweet}의 값을 가져와 삽입
       createdAt: Date.now(),
       creatorId: userObj.uid,
+      creatorEmail: userObj.email,
+      creatorName: userObj.displayName,
       attachmentUrl,
     };
     await dbService.collection('mweets').add(mweetObj);

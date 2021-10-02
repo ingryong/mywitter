@@ -34,9 +34,9 @@ const Mweet = ({ mweetObj, isOwner }) => {
       {editing ? (
         <>
           {isOwner && (
-            <>
+            <div className="Card-container">
               <form onSubmit={onSubmit}>
-                <input
+                <textarea
                   type="text"
                   placeholder="Edit your mweet"
                   value={newMweet}
@@ -46,22 +46,40 @@ const Mweet = ({ mweetObj, isOwner }) => {
                 <input type="submit" value="Update Mweet" />
               </form>
               <button onClick={tolggleEditing}>Cancel</button>{' '}
-            </>
+            </div>
           )}
         </>
       ) : (
-        <>
-          <h4>{mweetObj.text}</h4>
-          {mweetObj.attachmentUrl && (
-            <img src={mweetObj.attachmentUrl} width="100px" />
-          )}
-          {isOwner && (
+        <div className="Card-container">
+          <div className="padding">
+            <div className="edit">
+              {isOwner && (
+                <>
+                  <button
+                    className="Button verysmall gray outline"
+                    onClick={tolggleEditing}
+                  >
+                    수정
+                  </button>
+                  <button
+                    className="Button verysmall pink outline"
+                    onClick={onDeleteClick}
+                  >
+                    삭제
+                  </button>
+                </>
+              )}
+            </div>
+            <h4>{mweetObj.text}</h4>
+            {mweetObj.attachmentUrl && (
+              <img src={mweetObj.attachmentUrl} width="100px" />
+            )}
             <>
-              <button onClick={onDeleteClick}>Delete Mweet</button>
-              <button onClick={tolggleEditing}>Edit Mweet</button>
+              <span>{mweetObj.creatorName} </span>
+              <span> {mweetObj.createdAt}</span>
             </>
-          )}
-        </>
+          </div>
+        </div>
       )}
     </div>
   );

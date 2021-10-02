@@ -26,13 +26,22 @@ const Auth = () => {
   };
 
   return (
-    <div>
+    <div className="Auth-container">
+      <h4>mywitter</h4>
       <AuthForm />
-      <div>
-        <button onClick={onSocialClick} name="google">
+      <div className="social-login">
+        <button
+          className="Button black outline medium fullWidth"
+          onClick={onSocialClick}
+          name="google"
+        >
           Continue with Google
         </button>
-        <button onClick={onSocialClick} name="github">
+        <button
+          className="Button black outline medium fullWidth"
+          onClick={onSocialClick}
+          name="github"
+        >
           Continue with Github
         </button>
       </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import AppRouter from 'components/Router';
 import { authService } from 'fbase';
+import 'assets/css/Style.scss';
 
 function App() {
   const [init, setInit] = useState(false);
@@ -36,7 +37,7 @@ function App() {
   return (
     // init에 기본값으로 false를 넣어 확인중...을 보여주면서 useEffect의 처리를 통해 로그인 상태와 아닌 상태를 판별 후
     // src/components/Router.js 에 있는 설정대로 login페이지로, 아닐경우 '/'페이지 이동
-    <>
+    <div className="container">
       {init ? (
         <AppRouter
           refreshUser={refreshUser}
@@ -46,8 +47,7 @@ function App() {
       ) : (
         '확인중...'
       )}
-      <footer>&copy;{new Date().getFullYear()} mywitter</footer>
-    </>
+    </div>
   );
 }
 
