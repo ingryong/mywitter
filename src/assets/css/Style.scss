@@ -1,0 +1,213 @@
+/* 에셋 정리 */
+
+// color
+$white: #fff;
+$black: black;
+$blue: #228be6;
+$gray: #495057;
+$pink: #f06595;
+
+// mweet card-container
+.Card-container {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin: 10px 0px;
+
+  h4 {
+    margin-block-start: 10px;
+  }
+  form {
+    width: 98%;
+    margin: auto;
+    textarea {
+      width: 99%;
+      height: auto;
+      margin-top: 10px;
+    }
+    input {
+      border: none;
+      line-height: 1.4rem;
+    }
+  }
+
+  .padding {
+    padding: 2%;
+  }
+  .edit {
+    text-align: right;
+    button {
+      margin-left: 4px;
+    }
+  }
+}
+
+// button
+.Button {
+  display: inline-flex;
+  color: white;
+  height: 2.25rem;
+  padding-left: 1rem;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  align-items: center;
+  background: $blue;
+  &:hover {
+    background: lighten($color: $blue, $amount: 10%);
+    transition: 0.5s;
+  }
+  //사이즈
+  &.large {
+    height: 3rem;
+    padding-left: 1rem;
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+  }
+  &.medium {
+    height: 2.25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1rem;
+    line-height: 1rem;
+    align-items: center;
+  }
+  &.small {
+    height: 1.75rem;
+    font-size: 0.875rem;
+    line-height: 0.875rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    align-items: center;
+  }
+  &.verysmall {
+    height: 1.5rem;
+    font-size: 0.72rem;
+    line-height: 1rem;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    align-items: center;
+  }
+  @mixin button-color($color) {
+    background: $color;
+    &:hover {
+      background: lighten($color, 10%);
+    }
+    &:active {
+      background: darken($color, 10%);
+    }
+    &.outline {
+      color: $color;
+      background: none;
+      border: 1px solid $color;
+      &:hover {
+        background: $color;
+        color: white;
+      }
+    }
+  }
+  &.blue {
+    @include button-color($blue);
+  }
+  &.gray {
+    @include button-color($gray);
+  }
+  &.pink {
+    @include button-color($pink);
+  }
+  &.black {
+    @include button-color($black);
+  }
+  &.fullWidth {
+    width: 100%;
+    justify-content: center;
+    & + & {
+      margin-left: 0;
+      margin-top: 1rem;
+    }
+  }
+}
+
+/* html */
+body {
+  background-color: white;
+}
+
+/* App.js */
+.container {
+  max-width: 800px;
+  min-width: 360px;
+  margin: auto;
+}
+
+/* Auth.js, AuthForm.js */
+
+.Auth-container {
+  max-width: 500px;
+  padding: 3%;
+  margin: auto;
+  h4 {
+    text-align: center;
+    font-size: 2rem;
+    color: $blue;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+
+    .input {
+      margin-bottom: 10px;
+      border: none;
+      border-bottom: 1px solid $gray;
+      line-height: 2rem;
+    }
+    .error {
+      color: red;
+    }
+  }
+  span {
+    font-size: 0.875rem;
+    display: block;
+    padding: 10px 0px;
+    strong {
+      color: $blue;
+    }
+  }
+  .social-login {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+  }
+}
+
+/* Navigation.js */
+
+nav {
+  width: 100%;
+  height: 50px;
+  background: $blue;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 800px;
+    padding-inline-start: 10px;
+    padding-inline-end: 10px;
+    li {
+      list-style: none;
+      a {
+        text-decoration: none;
+        color: white;
+      }
+    }
+  }
+}
+.nav-blank {
+  width: 100%;
+  height: 50px;
+}
