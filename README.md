@@ -1,52 +1,7 @@
-# Getting Started with Create React App
+# mywitter
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+트위터의 아주 기본 기능인 상태(메시지)를 모두에게 보일 수 있는 형태로 남길 수 있는 웹 애플리케이션.
+데이터베이스, 스토리지, 웹 호스팅까지 모든 백엔드 부분을 firebase에서 처리하도록 하고 프론트엔드 부분만 집중적으로 다룰 수 있도록 제작헸다.
 
 ### “Absolute Imports”
 
@@ -55,3 +10,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ### Firebase 사용
 
 - Auth, datebase, storage, webhosting까지 백엔드 부분의 모든 처리를 firebase에 맡겨 프론트 개발에 집중할 수 있도록 한다.
+
+### SCSS 사용
+
+- react의 버전 업데이트에서 sass부분을 설치만 하면 바로 사용 할 수 있게 되어 기존의 추가 세팅 작업 없이 제대로 동작하게 되었다.
